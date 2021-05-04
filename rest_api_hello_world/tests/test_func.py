@@ -2,7 +2,7 @@ import json
 
 import requests
 
-# TODO понять как избежать хардкода url
+# TODO понять как избежать хардкода url (кроме как конфигом)
 URL_GET_DATA = 'http://0.0.0.0:8080/data'
 URL_HELLO_WORLD = "http://0.0.0.0:8080/hello_world"
 
