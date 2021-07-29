@@ -1,14 +1,11 @@
+import json
+import logging
+
+import flask
 from apispec import APISpec
 from apispec.ext.marshmallow import MarshmallowPlugin
 from apispec_webframeworks.flask import FlaskPlugin
-
-
 from marshmallow import Schema, fields
-
-
-import json
-
-import flask
 
 app = flask.Flask(__name__)
 
@@ -63,6 +60,10 @@ def post_data():
                           response=json.dumps(data_dict))
 
 
+def setup_logger() -> None:
+    logging.basicConfig(level=logging.DEBUG)
+
+
 # Register the path and the entities within it
 with app.test_request_context():
     spec.path(view=get_hello_world)
@@ -70,7 +71,21 @@ with app.test_request_context():
 
 
 if __name__ == "__main__":
-    print(spec.to_yaml())
+    logger = logging.getLogger(__name__)
+    setup_logger()
+
+    logger.info("start")
+
+    yaml_spec = spec.to_yaml()
+    logger.debug(f"yaml openapi scpec:\n{yaml_spec}")
+    logger.debug(f"type yaml spec: {type(yaml_spec)}")
+
+    # TODO сделать так, чтбы русский нормально писался
+    openapi_file_name = "openapi.yaml"
+    logger.info(f"saving openapi spec to file: {openapi_file_name}")
+    with open(openapi_file_name, "w", encoding="UTF8") as f:
+        f.write(yaml_spec)
 
     app.debug = True
     app.run(host="0.0.0.0", port=8080)
+    logger.info("end")
