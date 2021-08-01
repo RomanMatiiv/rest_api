@@ -10,9 +10,15 @@ info:
   version: 1.0.0
 openapi: 3.0.2
 paths:
-  /hello_world:
+  /hello_world/{num}:
     get:
       description: возвращяет hello_world
+      parameters:
+      - in: path
+        name: num
+        required: true
+        schema:
+          type: integer
       responses:
         '200':
           content:

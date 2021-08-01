@@ -20,13 +20,20 @@ class HelloWorldSchema(Schema):
     text = fields.Str()
 
 
-@app.route("/hello_world", methods=["GET"])
-def get_hello_world():
+@app.route("/hello_world/<int:num>", methods=["GET"])
+def get_hello_world(num):
     """
     Тестовая функция
     ---
     get:
+        parameters:
+            - in: path
+              name: num
+              schema:
+                type: integer
+
         description: возвращяет hello_world
+
         responses:
             200:
                 description: 'OK'
