@@ -35,9 +35,6 @@ def get_hello_world():
                         schema: HelloWorldSchema
     """
 
-    #TODO разобраться как возвращать обект
-    # HelloWorldSchema().dump(hello_world_object)
-
     return flask.Response(status=200,
                           mimetype="application/json",
                           response=json.dumps({"text": "hello world"}))
