@@ -26,7 +26,7 @@ def get_hello_world():
     Тестовая функция
     ---
     get:
-        description: Get a hello world massage
+        description: возвращяет hello_world
         responses:
             200:
                 description: 'OK'
@@ -76,11 +76,11 @@ if __name__ == "__main__":
 
     logger.info("start")
 
-    yaml_spec = spec.to_yaml()
+    _kwargs = {'allow_unicode': True}
+    yaml_spec = spec.to_yaml(yaml_dump_kwargs=_kwargs)
     logger.debug(f"yaml openapi scpec:\n{yaml_spec}")
     logger.debug(f"type yaml spec: {type(yaml_spec)}")
 
-    # TODO сделать так, чтбы русский нормально писался
     openapi_file_name = "openapi.yaml"
     logger.info(f"saving openapi spec to file: {openapi_file_name}")
     with open(openapi_file_name, "w", encoding="UTF8") as f:

@@ -10,9 +10,9 @@ info:
   version: 1.0.0
 openapi: 3.0.2
 paths:
-  /hello_world
+  /hello_world:
     get:
-      description: Get a hello world massage
+      description: возвращяет hello_world
       responses:
         '200':
           content:
@@ -22,9 +22,7 @@ paths:
           description: OK
   /data:
     get:
-      description: "\u0412\u043E\u0437\u0432\u0440\u0430\u0449\u0430\u0435\u0442 \u0440\
-        \u043E\u0432\u043D\u043E \u0442\u043E, \u0447\u0442\u043E \u043F\u0440\u0438\
-        \u043D\u0438\u043C\u0430\u0435\u0442"
+      description: Возвращает ровно то, что принимает
       responses:
         '200':
           description: OK
