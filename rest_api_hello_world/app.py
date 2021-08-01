@@ -17,6 +17,7 @@ spec = APISpec(title="Swagger hello world",
 
 
 class HelloWorldSchema(Schema):
+    num = fields.Int()
     text = fields.Str()
 
 
@@ -42,9 +43,11 @@ def get_hello_world(num):
                         schema: HelloWorldSchema
     """
 
+    hello_world_obj = {"text": "hello world",
+                       "num": num}
     return flask.Response(status=200,
                           mimetype="application/json",
-                          response=json.dumps({"text": "hello world"}))
+                          response=json.dumps(hello_world_obj))
 
 
 @app.route("/data", methods=["POST"])
@@ -52,7 +55,7 @@ def post_data():
     """
     Возвращает ровно то, что принимает
     ---
-    get:
+    post:
         description: Возвращает ровно то, что принимает
         responses:
             200:

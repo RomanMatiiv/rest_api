@@ -2,6 +2,8 @@ components:
   schemas:
     HelloWorld:
       properties:
+        num:
+          type: integer
         text:
           type: string
       type: object
@@ -27,7 +29,7 @@ paths:
                 $ref: '#/components/schemas/HelloWorld'
           description: OK
   /data:
-    get:
+    post:
       description: Возвращает ровно то, что принимает
       responses:
         '200':
