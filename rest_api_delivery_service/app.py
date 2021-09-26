@@ -13,28 +13,6 @@ class Order:
     raise NotImplemented
 
 
-class FileORM:
-    """
-    Класс который отвечает за связь
-    питоновской структуры данных и записе в файле
-    те явлеетя неким связующим компонентом
-    """
-    def __init__(self, file_name):
-        raise NotImplemented
-
-    def read(self):
-        raise NotImplemented
-
-    def write(self):
-        raise NotImplemented
-
-    def update(self):
-        raise NotImplemented
-
-    def delete(self):
-        raise NotImplemented
-
-
 class CourierManager:
     def __init__(self):
         raise NotImplemented
