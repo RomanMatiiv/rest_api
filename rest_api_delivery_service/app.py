@@ -1,16 +1,21 @@
 from dataclasses import dataclass
+from typing import List
 
 
 @dataclass
 class Courier:
-    field: int
-    raise NotImplemented
+    courier_id: int
+    courier_type: str
+    regions: List[int]
+    working_hours: List[str]
 
 
 @dataclass
 class Order:
-    field: int
-    raise NotImplemented
+    order_id: int
+    weight: float
+    region: int
+    delivery_hours: List[str]
 
 
 class CourierManager:
